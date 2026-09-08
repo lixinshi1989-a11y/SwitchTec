@@ -1,0 +1,286 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:32:22 PM  Sep 04, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error] Error in command execution
+        [error] Exception: CreatePolyline(Structured Array argParamters, Structured Array argAttributes) -> string(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details  In file "D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py", line 79 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+      Project1 (C:/Users/alexshi/Documents/Ansoft/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [error] Parasolid Error: Failed in function PK_CURVE_make_wire_body_2 with error PK_ERROR_crossing_edge.  (07:32:33 PM  Sep 04, 2026)
+          [error] Body could not be created for part because of invalid parameters to CreatePolyline operation. (07:32:33 PM  Sep 04, 2026)
+          [error] Script macro error: Command execution error, please see details in message window. (07:32:33 PM  Sep 04, 2026)
+-- Message Window --
+Stopping Batch Run: 7:32:33 PM  Sep 04, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:33:30 PM  Sep 04, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error] Error in command execution
+        [error] Exception: CreatePolyline(Structured Array argParamters, Structured Array argAttributes) -> string(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details  In file "D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py", line 79 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+      Project1 (C:/Users/alexshi/Documents/Ansoft/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [error] Parasolid Error: Failed in function PK_CURVE_make_wire_body_2 with error PK_ERROR_crossing_edge.  (07:33:40 PM  Sep 04, 2026)
+          [error] Body could not be created for part because of invalid parameters to CreatePolyline operation. (07:33:40 PM  Sep 04, 2026)
+          [error] Script macro error: Command execution error, please see details in message window. (07:33:40 PM  Sep 04, 2026)
+-- Message Window --
+Stopping Batch Run: 7:33:40 PM  Sep 04, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:34:21 PM  Sep 04, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:34:32 PM  Sep 04, 2026)
+-- Message Window --
+Stopping Batch Run: 7:34:33 PM  Sep 04, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 8:37:34 PM  Sep 04, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_L2L3 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (08:37:45 PM  Sep 04, 2026)
+-- Message Window --
+Stopping Batch Run: 8:37:47 PM  Sep 04, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:12:21 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:12:35 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:12:36 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:13:13 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:13:26 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:13:28 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:19:13 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap_v2 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:19:25 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:19:27 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:26:58 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap_v3 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:27:10 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:27:12 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:30:35 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap_v4 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:30:47 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:30:49 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:35:58 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap_v5 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:36:11 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:36:13 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:41:09 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Connected_Gap_v6_united (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (07:41:22 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 7:41:23 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 8:21:22 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      LLC_Planar_Transformer_Np3_Lm6p5uH_v7 (D:/SwitchTec/SST/AUX_design/LLC_design/output/)
+        LLC_Transformer_800kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (08:21:35 AM  Sep 05, 2026)
+-- Message Window --
+Stopping Batch Run: 8:21:36 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 9:18:45 AM  Sep 05, 2026
+Running as user : ZH503369\CodexSandboxOffline
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+[Exiting application]
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 9:19:08 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 9:19:18 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 10:08:00 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 10:08:10 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 10:18:18 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 10:18:28 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 10:24:45 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 10:24:56 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 10:02:29 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 10:02:39 PM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 10:05:14 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 10:05:24 PM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 6:59:17 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 6:59:27 AM  Sep 06, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:01:48 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 7:01:58 AM  Sep 06, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:09:44 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 7:09:53 AM  Sep 06, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:17:11 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 7:17:21 AM  Sep 06, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/build_llc_transformer_aedt.py
+Starting Batch Run: 7:22:46 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 7:22:56 AM  Sep 06, 2026

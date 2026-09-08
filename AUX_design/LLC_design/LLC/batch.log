@@ -1,0 +1,369 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:53:10 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 64028.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:53:19 AM  Sep 05, 2026)
+Stopping Batch Run: 8:53:28 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:53:58 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 56173.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts P1_L2_3T and PCB_Diel_L2_L3 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts P1_L2_3T and PCB_Diel_L1_L2 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S3_L6_4T and PCB_Diel_L7_L8 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S3_L6_4T and PCB_Diel_L6_L7 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S2_L3_4T and PCB_Diel_L2_L3 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S2_L3_4T and PCB_Diel_L1_L2 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S1_L2_4T and PCB_Diel_L1_L2 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Parts S4_L7_4T and PCB_Diel_L7_L8 intersect. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Simulation completed with execution error on server: Local Machine. (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: Simulation for LLC_Planar_Transformer_Leakage_800kHz : LLC_Transformer_800kHz : Leakage_800kHz has failed with execution error.  (08:54:06 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: No trace data for quantity: FluxLinkage(Primary_1A) (08:54:07 AM  Sep 05, 2026)
+Stopping Batch Run: 8:54:17 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:55:13 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 62568.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:55:22 AM  Sep 05, 2026)
+Stopping Batch Run: 8:55:24 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:55:38 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 62595.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:55:46 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Illegal external terminal 'Coil_UCX1GX': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Illegal external terminal 'Coil_YRQMWG': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Illegal external terminal 'Coil_O5XJXG': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Illegal external terminal 'Coil_9YN4AU': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Illegal external terminal 'Coil_XL6CDZ': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Simulation completed with execution error on server: Local Machine. (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: Simulation for LLC_Planar_Transformer_Leakage_800kHz : LLC_Transformer_800kHz : Leakage_800kHz has failed with execution error.  (08:55:46 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: No trace data for quantity: FluxLinkage(Primary_1A) (08:55:46 AM  Sep 05, 2026)
+Stopping Batch Run: 8:55:47 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:56:42 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 54514.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:56:52 AM  Sep 05, 2026)
+Stopping Batch Run: 8:57:01 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:57:16 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 61560.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:57:23 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path 'Path1': In one solid conduction path, at least two external terminals should be specified. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path 'Path2': In one solid conduction path, at least two external terminals should be specified. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path 'Path3': In one solid conduction path, at least two external terminals should be specified. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path 'Path4': In one solid conduction path, at least two external terminals should be specified. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path 'Path5': In one solid conduction path, at least two external terminals should be specified. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Simulation completed with execution error on server: Local Machine. (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: Simulation for LLC_Planar_Transformer_Leakage_800kHz : LLC_Transformer_800kHz : Leakage_800kHz has failed with execution error.  (08:57:23 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: No trace data for quantity: FluxLinkage(Primary_1A) (08:57:24 AM  Sep 05, 2026)
+Stopping Batch Run: 8:57:25 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:58:25 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 60558.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:58:35 AM  Sep 05, 2026)
+Stopping Batch Run: 8:58:39 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 8:58:54 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 60586.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:59:01 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Please note that the parallel branches setting is to be used only for symmetrical windings when there is no circulating current between the parallel loops. (08:59:01 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (08:59:01 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Solve Setup 'Leakage_800kHz': higher order shape functions will not be used in the Eddy solver since the current design has winding or impedance boundaries. (08:59:01 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Adaptive Passes did not converge based on specified criteria. (09:01:56 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Normal completion of simulation on server: Local Machine. (09:01:58 AM  Sep 05, 2026)
+Stopping Batch Run: 9:01:59 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:03:28 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 59427.
+
+[warning] Project:LLC_Planar_Transformer_Leakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (09:03:34 AM  Sep 05, 2026)
+Stopping Batch Run: 9:03:34 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:08:56 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 59926.
+
+[error] Project:LLC_Planar_Transformer_Np3_Connected_Gap_v6_united, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:09:02 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Np3_Connected_Gap_v6_united, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:09:02 AM  Sep 05, 2026)
+Stopping Batch Run: 9:09:09 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:09:59 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 49685.
+
+[error] Project:LLC_Planar_Transformer_Np3_Connected_Gap_v6_united, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:10:04 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Np3_Connected_Gap_v6_united, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:10:04 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Np3_Connected_Gap_v6_united, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (09:10:04 AM  Sep 05, 2026)
+Stopping Batch Run: 9:10:05 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:10:54 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 49726.
+
+Stopping Batch Run: 9:11:07 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:11:40 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 49755.
+
+[info] Project:LLC_Planar_Transformer_Lm6p5uH_MatrixLeakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (09:11:47 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Lm6p5uH_MatrixLeakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Normal completion of simulation on server: Local Machine. (09:12:50 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Lm6p5uH_MatrixLeakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:12:50 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Lm6p5uH_MatrixLeakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*3/4*L(Windings,WindingP)+3 is not a child name of L Table 2. (09:12:51 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Lm6p5uH_MatrixLeakage_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (09:12:51 AM  Sep 05, 2026)
+Stopping Batch Run: 9:12:52 AM  Sep 05, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 9:19:19 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 49325.
+
+[info] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (09:19:30 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (09:19:30 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (09:19:30 AM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:08:11 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 52874.
+
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (10:08:22 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:08:22 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:08:22 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (10:08:22 AM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:18:30 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 64637.
+
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (10:18:40 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:18:40 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:18:40 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (10:18:40 AM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:24:57 AM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 55075.
+
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20-mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (10:25:07 AM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20-mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:25:08 AM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20-mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:25:08 AM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_Built_Configured_800kHz_Spacing0p20-mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (10:25:08 AM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:02:41 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 54054.
+
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (10:02:51 PM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:02:51 PM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:02:52 PM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (10:02:52 PM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:05:25 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 64153.
+
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:08:11 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 62720.
+
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 10:09:16 PM  Sep 05, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 61140.
+
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (10:09:26 PM  Sep 05, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:09:26 PM  Sep 05, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (10:09:27 PM  Sep 05, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (10:09:27 PM  Sep 05, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 6:59:29 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 56989.
+
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (06:59:39 AM  Sep 06, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (06:59:39 AM  Sep 06, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (06:59:39 AM  Sep 06, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (06:59:39 AM  Sep 06, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 7:02:00 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 52066.
+
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (07:02:10 AM  Sep 06, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (07:02:10 AM  Sep 06, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (07:02:10 AM  Sep 06, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (07:02:10 AM  Sep 06, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 7:09:55 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 52885.
+
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (07:10:06 AM  Sep 06, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (07:10:06 AM  Sep 06, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (07:10:06 AM  Sep 06, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_Spacing0p20mm_CoreClearance1mm, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (07:10:06 AM  Sep 06, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 7:17:23 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 56831.
+
+[error] Project:LLC_Planar_Transformer_800kHz_InnerVias_FixedRouting, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (07:17:33 AM  Sep 06, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_InnerVias_FixedRouting, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (07:17:33 AM  Sep 06, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_InnerVias_FixedRouting, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (07:17:34 AM  Sep 06, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_InnerVias_FixedRouting, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (07:17:34 AM  Sep 06, 2026)
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Non Graphical Mode: No Project??
+Starting Batch Run: 7:22:58 AM  Sep 06, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] GRPC server running on port: 60686.
+
+[error] Project:LLC_Planar_Transformer_800kHz_YellowCircle_StaggeredVias, While parsing expression: "1mmmeter", an error was found near character 0. 'mmmeter' is not a valid unit. (07:23:09 AM  Sep 06, 2026)
+[info] Project:LLC_Planar_Transformer_800kHz_YellowCircle_StaggeredVias, Design:LLC_Transformer_800kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (07:23:09 AM  Sep 06, 2026)
+[warning] Project:LLC_Planar_Transformer_800kHz_YellowCircle_StaggeredVias, Design:LLC_Transformer_800kHz (EddyCurrent), The variable  'Phase' doesn't have an associated sweep and is excluded from the definition of trace. (07:23:09 AM  Sep 06, 2026)
+[error] Project:LLC_Planar_Transformer_800kHz_YellowCircle_StaggeredVias, Design:LLC_Transformer_800kHz (EddyCurrent), Script macro error: L(WindingP,WindingP)-2*(3/4)*L(WindingS,WindingP)+(3 is not a child name of LLC Leakage 3to4. (07:23:09 AM  Sep 06, 2026)

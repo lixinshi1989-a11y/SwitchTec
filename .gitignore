@@ -1,0 +1,19 @@
+# Local environments and downloaded dependencies
+**/.venv/
+**/.deps/
+
+# Python caches
+**/__pycache__/
+**/*.py[cod]
+**/.pytest_cache/
+
+# Temporary work files
+**/tmp/
+*.aedt.lock
+
+# Generated Flyback and LLC results
+/AUX_design/LLC_design/Flyback/output/
+/AUX_design/LLC_design/LLC/output/
+
+# Local archive duplicate
+/SwitchTech.7z
