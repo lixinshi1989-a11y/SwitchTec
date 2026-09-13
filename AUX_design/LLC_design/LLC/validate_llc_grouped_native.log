@@ -1,0 +1,17 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/LLC/validate_llc_grouped_native.py
+Starting Batch Run: 6:26:29 PM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[error] Illegal external terminal 'WindingS1_Positive': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS1_Negative': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS2_Positive': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS2_Negative': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS3_Positive': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS3_Negative': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS4_Positive': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+[error] Illegal external terminal 'WindingS4_Negative': An external terminal must border the edge of the problem region and coincides with the surface of a 3D object.
+Stopping Batch Run: 6:26:37 PM  Sep 12, 2026

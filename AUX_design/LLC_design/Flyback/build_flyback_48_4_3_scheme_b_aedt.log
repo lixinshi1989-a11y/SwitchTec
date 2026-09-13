@@ -1,0 +1,106 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 1:13:02 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error] Error in command execution
+        [error] Exception: CreateBox(Structured Array argParamters, Structured Array argAttributes) -> string(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details  In file "D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py", line 67 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+      Project1 (C:/Users/alexshi/Documents/Ansoft/)
+        Flyback_48_4_3_B_100kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (01:13:13 PM  Sep 10, 2026)
+          [error] Script macro error: Invalid part name: Valid characters are letters, numbers, underscores.  (01:13:13 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 1:13:14 PM  Sep 10, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 1:13:42 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      *Global - Messages
+        [error] Error in command execution
+        [error] Exception: Subtract(Structured Array argSelections, Structured Array argParamters)(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details  In file "D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py", line 359 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+      Project1 (C:/Users/alexshi/Documents/Ansoft/)
+        Flyback_48_4_3_B_100kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (01:13:52 PM  Sep 10, 2026)
+          [error] Body could not be created for part because of invalid parameters to Unite operation. (01:14:11 PM  Sep 10, 2026)
+          [error] Script macro error: Selections: AUX_Left_L6_2T contains NULL body, no operation can be performed.  (01:14:11 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 1:14:12 PM  Sep 10, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 1:16:08 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      Flyback_48_4_3_Scheme_B_AUX_Xm28_100kHz (D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/output/48_4_3/)
+        Flyback_48_4_3_B_100kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (01:16:18 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 1:16:41 PM  Sep 10, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 1:30:11 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      Flyback_48_4_3_Scheme_B_AUX_Xm28_RoutingV2_100kHz (D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/output/48_4_3/)
+        Flyback_48_4_3_B_100kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (01:30:22 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 1:30:48 PM  Sep 10, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 1:39:14 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      Flyback_48_4_3_Scheme_B_AUX_Xm28_RoutingV3_100kHz (D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/output/48_4_3/)
+        Flyback_48_4_3_B_100kHz (EddyCurrent)
+          [info] Accurate transparency rendering is disabled to avoid slow rendering performance. (01:39:24 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 1:39:48 PM  Sep 10, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 6:27:48 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 6:28:01 AM  Sep 11, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 6:40:06 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 6:40:19 AM  Sep 11, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_48_4_3_scheme_b_aedt.py
+Starting Batch Run: 6:44:33 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 6:44:47 AM  Sep 11, 2026

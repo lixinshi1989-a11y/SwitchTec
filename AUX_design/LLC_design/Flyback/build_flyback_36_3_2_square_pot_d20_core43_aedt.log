@@ -1,0 +1,44 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_square_pot_d20_core43_aedt.py
+Starting Batch Run: 7:52:41 AM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_SquarePot_D20_Core43_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (07:52:57 AM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 7:53:02 AM  Sep 12, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_square_pot_d20_core43_aedt.py
+Starting Batch Run: 10:28:39 AM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_SquarePot_D20_Core43_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:28:54 AM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 10:28:59 AM  Sep 12, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_square_pot_d20_core43_aedt.py
+Starting Batch Run: 10:47:57 AM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_SquarePot_D20_Core43_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (10:48:14 AM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 10:48:18 AM  Sep 12, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_square_pot_d20_core43_aedt.py
+Starting Batch Run: 11:01:29 AM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_SquarePot_D20_Core43_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (11:01:50 AM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 11:01:55 AM  Sep 12, 2026

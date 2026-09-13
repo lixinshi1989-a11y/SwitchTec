@@ -1,0 +1,53 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Starting Batch Run: 8:50:26 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[warning] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Part Attributes: Name LeadSlot is already used, use name LeadSlot_1. (08:50:34 AM  Sep 11, 2026)
+[warning] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Part Attributes: Name SlotProtectPost is already used, use name SlotProtectPost_1. (08:50:34 AM  Sep 11, 2026)
+[error] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Script macro error: Selections: Part with name LeadSlot is not found!
+Selections: Part with name SlotProtectPost is not found!
+ (08:50:34 AM  Sep 11, 2026)
+[error] Error in command execution
+[error] Exception: Subtract(Structured Array argSelections, Structured Array argParamters)(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details
+In file "D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py", line 65 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Stopping Batch Run: 8:50:35 AM  Sep 11, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Starting Batch Run: 8:51:22 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[error] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Script macro error: Invalid part name: Valid characters are letters, numbers, underscores.
+ (08:51:31 AM  Sep 11, 2026)
+[error] Error in command execution
+[error] Exception: CreateBox(Structured Array argParamters, Structured Array argAttributes) -> string(IronPython.Runtime.List,IronPython.Runtime.List) - call failed. Logs or message window might have more details
+In file "D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py", line 59 ---- While executing script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Stopping Batch Run: 8:51:32 AM  Sep 11, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Starting Batch Run: 8:54:37 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (08:54:52 AM  Sep 11, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 8:54:58 AM  Sep 11, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_36_3_2_scheme_c_pot_aedt.py
+Starting Batch Run: 8:57:07 AM  Sep 11, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_36_3_2_Scheme_C_Pot_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (08:57:22 AM  Sep 11, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 8:57:28 AM  Sep 11, 2026

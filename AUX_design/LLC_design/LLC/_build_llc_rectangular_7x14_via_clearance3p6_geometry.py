@@ -1,13 +1,23 @@
 """Build the planar LLC transformer in Ansys Electronics Desktop 2024 R2.
 
-For a complete build with solver configuration, run
-``build_and_configure_llc_aedt.py``.  Run this geometry-only script directly
-inside AEDT only when solver settings are not wanted.
+Save-as geometry variant with 3.6 mm via clearance on L2/L7.
+Run directly inside AEDT. The old configure script has different secondary
+terminal coordinates; update them before configuring this variant:
+L3/L6 START: x=28 mm, y=+3/-3 mm; L2/L7 END lane: y=-14.65 mm.
+All output terminal X positions remain 29 mm. No solver setup is assigned here.
 Geometry units are millimetres. Blind-via access is limited to L1-L2/L1-L3
 and L8-L7/L8-L6. Surface breakouts preserve each winding's trace width.
 """
 import ScriptEnv
 import os
+import math
+import json
+
+# Save-as variant: L2/L7 avoid the deeper secondary access vias.
+# Clearance means copper edge to via copper edge, not centre distance.
+VIA_CLEARANCE = 3.6
+ARC_MARGIN = 0.02
+clearance_audit = []
 
 ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")
 oDesktop.RestoreWindow()
@@ -26,17 +36,18 @@ CU = [0.069, 0.064, 0.064, 0.064, 0.064, 0.064, 0.064, 0.069]
 DIEL = [0.346, 0.406, 0.393, 0.406, 0.406, 0.406, 0.360]
 BOARD_T = sum(CU) + sum(DIEL)       # 3.245 mm
 
-CORE_LENGTH = 36.0
-CORE_WIDTH = 10.0
-LEG = 10.0
-LEG_PITCH = 26.0
-SLOT = 10.6
+CORE_LENGTH = 30.0
+CORE_DEPTH = 14.0
+LEG = 7.0
+LEG_PITCH = 23.0
+SLOT_X = 7.6
+SLOT_Y = 14.6
 # Keep the previously verified physical gap. Reducing the U height shortens
 # the ferrite path and is intentionally allowed to increase Lm slightly.
 GAP_EACH_JOINT = 0.052554
-CORE_TO_PCB_SURFACE = 1.0
+CORE_TO_PCB_SURFACE = 0.5
 # Inner yoke face = PCB surface + 1 mm. The half-gap is outside each U core.
-U_HEIGHT = CORE_WIDTH + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
+U_HEIGHT = LEG + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
 
 P_TURNS = 3
 S_TURNS = 4
@@ -138,8 +149,8 @@ def create_via(name, x, y, first_layer, last_layer, diameter, color):
     """Copper blind via between the named layer centres (inclusive)."""
     z1 = layer_z[first_layer - 1]
     z2 = layer_z[last_layer - 1]
-    z0 = min(z1, z2) - CU[first_layer - 1] / 2.0
-    height = abs(z2 - z1) + (CU[first_layer - 1] + CU[last_layer - 1]) / 2.0
+    z0 = min(z1-CU[first_layer-1]/2, z2-CU[last_layer-1]/2)
+    height = max(z1+CU[first_layer-1]/2, z2+CU[last_layer-1]/2)-z0
     return oEditor.CreateCylinder(
         ["NAME:CylinderParameters", "XCenter:=", mm(x), "YCenter:=", mm(y),
          "ZCenter:=", mm(z0), "Radius:=", mm(diameter / 2.0),
@@ -155,12 +166,14 @@ def create_via(name, x, y, first_layer, last_layer, diameter, color):
 
 def rectangular_spiral(cx, cy, turns, width, spacing, z, exit_side,
                        core_clearance=LEG_TO_COPPER):
-    """Open rectangular spiral around one 10 x 10 mm core-leg slot."""
+    """Open rectangular spiral around one 7 x 14 mm core-leg slot."""
     pitch = width + spacing
-    inner = LEG / 2.0 + core_clearance + width / 2.0
-    outer = inner + (turns - 1) * pitch
-    x_left, x_right = cx - outer, cx + outer
-    y_bottom, y_top = cy - outer, cy + outer
+    inner_x = LEG / 2.0 + core_clearance + width / 2.0
+    inner_y = CORE_DEPTH / 2.0 + core_clearance + width / 2.0
+    outer_x = inner_x + (turns - 1) * pitch
+    outer_y = inner_y + (turns - 1) * pitch
+    x_left, x_right = cx - outer_x, cx + outer_x
+    y_bottom, y_top = cy - outer_y, cy + outer_y
     # Non-self-intersecting rectangular spiral, initially with a left exit.
     pts = [(x_left - 4.0, cy, z), (x_left, cy, z), (x_left, y_top, z)]
     for turn in range(turns):
@@ -176,6 +189,99 @@ def rectangular_spiral(cx, cy, turns, width, spacing, z, exit_side,
         pts = [(2.0 * cx - x, y, zz) for x, y, zz in pts]
     return pts
 
+
+def clearance_spiral(layer, name):
+    """Four turns with concentric circular lower-right corners.
+
+    A single semicircle would cross adjacent turns. Move all four right-hand
+    sides together and use exact quarter-circle segments around the END via.
+    The final turn ends at the bottom tangent, clear of the deeper END via.
+    """
+    z = layer_z[layer-1]
+    cx = LEG_PITCH/2.0
+    vx = cx + LEG/2 + SEC_LEG_TO_COPPER + S_WIDTH/2 - .95
+    vy = -(CORE_DEPTH/2 + SEC_LEG_TO_COPPER + S_WIDTH/2)
+    inner_radius = VIA_CLEARANCE + S_WIDTH + ARC_MARGIN
+    pitch = S_WIDTH + TURN_SPACING
+    ix = LEG/2 + SEC_LEG_TO_COPPER + S_WIDTH/2
+    iy = CORE_DEPTH/2 + SEC_LEG_TO_COPPER + S_WIDTH/2
+    outer_x = ix + (S_TURNS-1)*pitch
+    points = [(cx+outer_x+4, 0, z)]
+    segments = []
+    def line(p):
+        segments.append(('Line',len(points)-1,2))
+        points.append(p)
+    def arc(mid,end):
+        segments.append(('Arc',len(points)-1,3))
+        points.extend([mid,end])
+    radius = inner_radius+(S_TURNS-1)*pitch
+    line((vx+radius,0,z))
+    for turn in range(S_TURNS):
+        radius = inner_radius+(S_TURNS-1-turn)*pitch
+        left = cx-(outer_x-turn*pitch)
+        top = iy+(S_TURNS-1-turn)*pitch
+        line((vx+radius,top,z))
+        line((left,top,z))
+        line((left,vy-radius,z))
+        line((vx,vy-radius,z))
+        if turn<S_TURNS-1:
+            arc((vx+radius/math.sqrt(2),vy-radius/math.sqrt(2),z),
+                (vx+radius,vy,z))
+            line((vx+radius-pitch,vy,z))
+    # Exact distance to the END via for each straight segment; arc distance
+    # is its concentric radius. Also check the displaced deeper START via.
+    def segment_distance(a,b,q):
+        dx,dy=b[0]-a[0],b[1]-a[1]
+        t=max(0,min(1,((q[0]-a[0])*dx+(q[1]-a[1])*dy)/(dx*dx+dy*dy)))
+        return math.hypot(a[0]+t*dx-q[0],a[1]+t*dy-q[1])
+    minima=[]
+    for q in [(vx,vy),(28.0,3.0 if layer==2 else -3.0)]:
+        distances=[]
+        for kind,start,count in segments:
+            if kind=='Line':
+                distances.append(segment_distance(points[start],points[start+1],q))
+            else:
+                r=math.hypot(points[start][0]-vx,points[start][1]-vy)
+                angle=math.atan2(q[1]-vy,q[0]-vx)
+                if -math.pi/2<=angle<=0:
+                    distances.append(abs(math.hypot(q[0]-vx,q[1]-vy)-r))
+                else:
+                    distances.append(min(math.hypot(points[j][0]-q[0],points[j][1]-q[1])
+                                         for j in [start,start+2]))
+        gap=min(distances)-S_WIDTH
+        assert gap>=VIA_CLEARANCE-1e-8, ('Via clearance failed',layer,q,gap)
+        minima.append(gap)
+    assert min(p[1] for p in points)-S_WIDTH/2>=-BOARD_Y/2
+    clearance_audit.append(dict(layer=layer,end_via_gap_mm=minima[0],
+        start_via_gap_mm=minima[1],required_mm=VIA_CLEARANCE,
+        endpoint_mm=points[-1],arc_centre_mm=[vx,vy],inner_radius_mm=inner_radius))
+    # Boolean quarter-annuli avoid the AEDT swept-profile crossing-edge error.
+    # These are exact circular copper solids, not a faceted approximation.
+    parts=[]
+    thickness=CU[layer-1]
+    def cylinder(part,r):
+        oEditor.CreateCylinder(['NAME:CylinderParameters','XCenter:=',mm(vx),
+            'YCenter:=',mm(vy),'ZCenter:=',mm(z-thickness/2),'Radius:=',mm(r),
+            'Height:=',mm(thickness),'WhichAxis:=','Z','NumSides:=','0'],
+            ['NAME:Attributes','Name:=',part,'MaterialValue:=','"copper"',
+             'SolveInside:=',True,'Color:=','(30 105 220)'])
+    for i,(kind,start,count) in enumerate(segments):
+        part=name if not parts else name+'_part_'+str(i)
+        if kind=='Line':
+            create_trace(part,points[start:start+2],S_WIDTH,thickness,'(30 105 220)')
+        else:
+            r=math.hypot(points[start][0]-vx,points[start][1]-vy)
+            cylinder(part,r+S_WIDTH/2)
+            cylinder(part+'_Hole',r-S_WIDTH/2)
+            extent=2*(r+S_WIDTH)
+            create_box(part+'_LeftCut',[vx-extent,vy-extent,z-thickness],
+                [extent,2*extent,3*thickness],'vacuum','(255 255 255)')
+            create_box(part+'_TopCut',[vx-extent,vy,z-thickness],
+                [2*extent,extent,3*thickness],'vacuum','(255 255 255)')
+            subtract(part,[part+'_Hole',part+'_LeftCut',part+'_TopCut'])
+        parts.append(part)
+    unite(parts)
+    return points
 
 # -----------------------------------------------------------------------------
 # Material definitions
@@ -207,8 +313,8 @@ for layer in range(1, 9):
         holes = []
         for idx, cx in enumerate([-LEG_PITCH / 2.0, LEG_PITCH / 2.0], 1):
             hname = "{}_SlotTool{}".format(diel_name, idx)
-            create_box(hname, [cx - SLOT / 2, -SLOT / 2, z - 0.01],
-                       [SLOT, SLOT, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
+            create_box(hname, [cx - SLOT_X / 2, -SLOT_Y / 2, z - 0.01],
+                       [SLOT_X, SLOT_Y, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
             holes.append(hname)
         subtract(diel_name, holes)
         z += DIEL[layer - 1]
@@ -233,14 +339,19 @@ for layer, winding in PRIMARY_LAYERS.items():
                  CU[layer - 1], "(220 55 35)")
 
 for layer, winding in SECONDARY_LAYERS.items():
+    if layer in (2,7):
+        secondary_points[layer] = clearance_spiral(layer,"{}_L{}_4T".format(winding,layer))
+        continue
     pts = rectangular_spiral(LEG_PITCH / 2.0, 0.0, S_TURNS,
                              S_WIDTH, TURN_SPACING, layer_z[layer - 1], "right",
                              SEC_LEG_TO_COPPER)
     # Offset the outer/start access for L3/L6 to clear the traversed layer.
     if layer == 3:
-        pts.insert(0, (pts[0][0], pts[0][1] + 3.0, pts[0][2]))
+        pts.insert(0, (28.0,0,pts[0][2]))
+        pts.insert(0, (28.0,3.0,pts[0][2]))
     elif layer == 6:
-        pts.insert(0, (pts[0][0], pts[0][1] - 3.0, pts[0][2]))
+        pts.insert(0, (28.0,0,pts[0][2]))
+        pts.insert(0, (28.0,-3.0,pts[0][2]))
     # Continue along the innermost bottom edge, without crossing any turns.
     # The deeper blind via is beyond the endpoint of the traversed layer.
     secondary_inner_right = (LEG_PITCH / 2.0 +
@@ -270,8 +381,7 @@ create_trace("PRI_START_BREAKOUT_L1",
 # At the left yellow-circle via, change to L1, go down, then out to the left.
 create_trace("PRI_END_BREAKOUT_L1",
              [(p_end_via[0], p_end_via[1], layer_z[0]),
-              (p_end_via[0], -9.0, layer_z[0]),
-              (-29.5, -9.0, layer_z[0])],
+              (-29.5, p_end_via[1], layer_z[0])],
              P_WIDTH, CU[0], "(220 55 35)")
 
 # Each output stays isolated and receives two accessible surface terminals.
@@ -279,7 +389,7 @@ create_trace("PRI_END_BREAKOUT_L1",
 sec_access = {2: (1, 2), 3: (1, 3), 6: (6, 8), 7: (7, 8)}
 sec_surface = {2: 1, 3: 1, 6: 8, 7: 8}
 # Separate surface return lanes, with 0.20 mm copper-edge spacing.
-sec_return_y = {2: -9.15, 3: -8.25, 6: -8.25, 7: -9.15}
+sec_return_y = {2: -14.65, 3: -9.25, 6: -9.25, 7: -14.65}
 for layer in (2, 3, 6, 7):
     pts = secondary_points[layer]
     start_pt, end_pt = pts[0], pts[-1]
@@ -327,40 +437,45 @@ for layer, winding in SECONDARY_LAYERS.items():
 # -----------------------------------------------------------------------------
 # Upper and lower U cores. Joint is centred at Z=0 inside the PCB slots.
 # -----------------------------------------------------------------------------
-stem = U_HEIGHT - CORE_WIDTH
+stem = U_HEIGHT - LEG
 g2 = GAP_EACH_JOINT / 2.0
 left_x = -CORE_LENGTH / 2.0
 right_leg_x = CORE_LENGTH / 2.0 - LEG
 
 upper = []
 upper.append("Core_Upper_Yoke")
-create_box(upper[-1], [left_x, -CORE_WIDTH / 2, g2 + stem],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(upper[-1], [left_x, -CORE_DEPTH / 2, g2 + stem],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Upper_Leg_P", left_x), ("Core_Upper_Leg_S", right_leg_x)]:
     upper.append(name)
-    create_box(name, [x, -LEG / 2, g2], [LEG, LEG, stem], "DMR53", "(65 70 78)")
+    create_box(name, [x, -CORE_DEPTH / 2, g2], [LEG, CORE_DEPTH, stem], "DMR53", "(65 70 78)")
 
 lower = []
 lower.append("Core_Lower_Yoke")
-create_box(lower[-1], [left_x, -CORE_WIDTH / 2, -g2 - U_HEIGHT],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(lower[-1], [left_x, -CORE_DEPTH / 2, -g2 - U_HEIGHT],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Lower_Leg_P", left_x), ("Core_Lower_Leg_S", right_leg_x)]:
     lower.append(name)
-    create_box(name, [x, -LEG / 2, -g2 - stem], [LEG, LEG, stem],
+    create_box(name, [x, -CORE_DEPTH / 2, -g2 - stem], [LEG, CORE_DEPTH, stem],
                "DMR53", "(65 70 78)")
 
 # Explicit nonmagnetic joint gaps. Each joint is 52.554 um; a closed U-U
 # magnetic path crosses both joints, giving approximately 0.1051 mm total gap.
-create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
-create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
 
 # Add the Maxwell air region after terminal/polarity review. Avoid creating an
 # overlapping ordinary vacuum solid here because it can hide geometry errors.
 oEditor.FitAll()
 
 # Save beside the script when AEDT exposes the project path through the UI.
-oProject.SaveAs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output', 'LLC_Planar_Transformer_Np3_Lm6p5uH_v7.aedt'), True)
+if list(oEditor.GetObjectsInGroup('Unclassified')):
+    raise RuntimeError('Invalid geometry: inspect arc sweep before saving')
+output_dir=os.path.join(os.path.dirname(os.path.abspath(__file__)),'output')
+oProject.SaveAs(os.path.join(output_dir,'LLC_Rectangular_7x14_ViaClearance3p6_Geometry.aedt'), True)
+with open(os.path.join(output_dir,'LLC_Rectangular_7x14_ViaClearance3p6_audit.json'),'w') as stream:
+    json.dump(clearance_audit,stream,indent=2)
 print("AEDT model created: U height {:.6f} mm, core-to-PCB {:.3f} mm, each gap {:.6f} mm.".format(
     U_HEIGHT, CORE_TO_PCB_SURFACE, GAP_EACH_JOINT))

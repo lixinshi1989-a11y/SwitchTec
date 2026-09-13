@@ -1,6 +1,6 @@
 """Build only Flyback scheme C EE geometry in AEDT; no solver excitation yet.
 Primary L2/L3 spirals are series-connected by an inner L1-L3 blind via.
-Secondary L6/L7 are paralleled through L6-L8 blind vias with centred L8 leads.
+Secondary L6/L7/L8 are paralleled using blind vias and off-board copper bridges.
 AUX layer connections and solver excitations remain unrouted.
 """
 import ScriptEnv
@@ -19,10 +19,10 @@ CU=[.069,.064,.064,.064,.064,.064,.064,.069]
 DIEL=[.346,.406,.393,.406,.406,.406,.360]
 BOARD_T=sum(CU)+sum(DIEL)
 DEPTH=24.0
-LENGTH=80.0
+LENGTH=70.0
 YOKE=12.0
 OUTER=12.0
-WINDOW=16.0
+WINDOW=11.0
 CLEARANCE=1.0
 mu0=4*math.pi*1e-7
 mur=3300.0
@@ -31,7 +31,7 @@ Ao=12*24*1e-6
 Ay=12*24*1e-6
 h0=YOKE+BOARD_T/2+CLEARANCE
 vertical0=2*(h0-YOKE/2)*1e-3
-pitch=34e-3
+pitch=29e-3
 r0=vertical0/(mu0*mur*Ac)+(vertical0/(mu0*mur*Ao)+2*pitch/(mu0*mur*Ay))/2
 g=(36.0**2/.0023-r0)/((1/(mu0*Ac)+1/(2*mu0*Ao))*(1-1/mur))
 GAP=g*1e3
@@ -98,7 +98,7 @@ def create_trace(name, points, width, thickness, color):
 
 def rectangular_spiral(cx, cy, turns, width, spacing, z, exit_side,
                        core_clearance=LEG_TO_COPPER):
-    """Open rectangular spiral around one 10 x 10 mm core-leg slot."""
+    """Open rectangular spiral around the 24 x 24 mm core leg."""
     pitch = width + spacing
     inner = LEG / 2.0 + core_clearance + width / 2.0
     outer = inner + (turns - 1) * pitch
@@ -164,13 +164,13 @@ for tag,sign in [("Upper",1),("Lower",-1)]:
     yoke_z=GAP/2+STEM if sign==1 else -GAP/2-HEIGHT
     leg_z=GAP/2 if sign==1 else -GAP/2-STEM
     parts=["Core_"+tag+"_Yoke"]
-    create_box(parts[0],[-40,-12,yoke_z],[80,24,12],"TPG33","(166 166 166)")
-    for lab,x,w in [("Left",-40,12),("Center",-12,24),("Right",28,12)]:
+    create_box(parts[0],[-35,-12,yoke_z],[70,24,12],"TPG33","(166 166 166)")
+    for lab,x,w in [("Left",-35,12),("Center",-12,24),("Right",23,12)]:
         name="Core_"+tag+"_"+lab
         create_box(name,[x,-12,leg_z],[w,24,STEM],"TPG33","(166 166 166)")
         parts.append(name)
     unite(parts)
-for lab,x,w in [("Left",-40,12),("Center",-12,24),("Right",28,12)]:
+for lab,x,w in [("Left",-35,12),("Center",-12,24),("Right",23,12)]:
     create_box("Gap_"+lab,[x,-12,-GAP/2],[w,24,GAP],"vacuum","(200 225 255)")
 # L1 at the PCB top; keep every dielectric layer and finished core cut-out.
 layer_z=[]
@@ -180,9 +180,9 @@ for i,t in enumerate(CU):
     z-=t
     if i<7:
         d=DIEL[i]; name="PCB_Diel_L%d_L%d"%(i+1,i+2)
-        create_box(name,[-46,-31,z-d],[92,62,d],"FR4_epoxy","(100 145 85)")
+        create_box(name,[-41,-31,z-d],[82,62,d],"FR4_epoxy","(100 145 85)")
         cut=[]
-        for lab,x,w in [("Left",-40,12),("Center",-12,24),("Right",28,12)]:
+        for lab,x,w in [("Left",-35,12),("Center",-12,24),("Right",23,12)]:
             cn=name+"_Cut_"+lab
             create_box(cn,[x-.3,-12.3,z-d-.01],[w+.6,24.6,d+.02],"vacuum","(255 255 255)")
             cut.append(cn)
@@ -197,8 +197,9 @@ for layer,turns,width,tag,col,clear in [
  (3,18,.2,"Primary_B","(220 50 30)",2),
  (4,1,.2,"AUX_A","(0 150 65)",5.4),
  (5,1,.2,"AUX_B","(0 150 65)",5.4),
- (6,3,4.0,"Secondary_A","(25 90 220)",2),
- (7,3,4.0,"Secondary_B","(25 90 220)",2)]:
+ (6,3,2.2,"Secondary_A","(25 90 220)",2),
+ (7,3,2.2,"Secondary_B","(25 90 220)",2),
+ (8,3,2.2,"Secondary_C","(25 90 220)",2)]:
     pts=rectangular_spiral(0,0,turns,width,.2,layer_z[layer-1],"left",clear)
     # Remove the four-mm outer stub, which would otherwise enter a return leg.
     pts=pts[1:]
@@ -222,7 +223,7 @@ for layer,turns,width,tag,col,clear in [
     elif layer in (4,5):
         # AUX outer ends leave downwards on their own layers.
         pts[0]=(pts[0][0],-31.0,pts[0][2])
-    elif layer in (6,7):
+    elif layer in (6,7,8):
         pts=centred_secondary_spiral(turns,width,.2,layer_z[layer-1])
         secondary_points[layer]=pts
     name="%s_L%d_%dT"%(tag,layer,turns)
@@ -241,27 +242,44 @@ oEditor.CreateCylinder(["NAME:CylinderParameters","XCenter:=",mm(0),
     ["NAME:Attributes","Name:=","Primary_Series_Via_L1_L3",
      "MaterialValue:=",'"copper"',"SolveInside:=",True,"Color:=","(220 50 30)"])
 unite(["Primary_A_L2_18T","Primary_B_L3_18T","Primary_Series_Via_L1_L3"])
-# Parallel secondary: the two shared vias deliberately contact L6 and L7.
-# Like the LLC builder, cross buried turns only on the accessible surface.
-# Solid copper via diameter equals trace width (the existing modelling convention).
-secondary_parts=["Secondary_A_L6_3T","Secondary_B_L7_3T"]
+# Parallel L6/L7/L8 ends are joined by shared blind vias. L8 is occupied;
+# use separate copper bridges BELOW the PCB with 0.50 mm air standoff.
+# These bridges are assembly conductors, not a fictitious ninth PCB layer.
+secondary_parts=["Secondary_A_L6_3T","Secondary_B_L7_3T","Secondary_C_L8_3T"]
 secondary_terminals=[]
 secondary_vias=[]
-zsurf=layer_z[7]
-for label,point,lane_x in [("START",secondary_points[6][0],4.2),
-                           ("END",secondary_points[6][-1],-4.2)]:
+bus_width=6.5
+bus_thickness=.069
+bus_standoff=.50
+bus_z=-BOARD_T/2-bus_standoff-bus_thickness/2
+for label,point,lane_x,bus_y in [
+        ("START",secondary_points[6][0],4.55,secondary_points[6][0][1]),
+        ("END",secondary_points[6][-1],-4.55,15.5)]:
     name="Secondary_"+label+"_VIA_L6_L8"
-    create_via(name,point[0],point[1],6,8,4.0,"(25 90 220)")
+    create_via(name,point[0],point[1],6,8,2.2,"(25 90 220)")
     secondary_parts.append(name)
-    secondary_vias.append(dict(name=name,xy_mm=list(point[:2]),
-                               layers=[6,7,8],diameter_mm=4.0))
-    name="Secondary_"+label+"_BREAKOUT_L8"
-    terminal=(lane_x,31.0,zsurf)
-    create_trace(name,[(point[0],point[1],zsurf),
-                      (lane_x,point[1],zsurf),terminal],4.0,CU[7],"(25 90 220)")
+    secondary_vias.append(dict(name=name,xy_mm=list(point[:2]),layers=[6,7,8],diameter_mm=2.2))
+    name="Secondary_"+label+"_Bridge_Post"
+    bottom=bus_z-bus_thickness/2
+    top=layer_z[7]+CU[7]/2
+    oEditor.CreateCylinder(
+        ["NAME:CylinderParameters","XCenter:=",mm(point[0]),"YCenter:=",mm(point[1]),
+         "ZCenter:=",mm(bottom),"Radius:=",mm(1.1),"Height:=",mm(top-bottom),
+         "WhichAxis:=","Z","NumSides:=","0"],
+        ["NAME:Attributes","Name:=",name,"MaterialValue:=",'"copper"',
+         "SolveInside:=",True,"Color:=","(25 90 220)"])
     secondary_parts.append(name)
-    secondary_terminals.append(dict(label=label,layer=8,centre_mm=terminal,
-                                    width_mm=4.0))
+    if abs(bus_y-point[1])>1e-9:
+        name="Secondary_"+label+"_Bridge_Neck"
+        create_trace(name,[(point[0],point[1],bus_z),(point[0],bus_y,bus_z)],
+                     2.2,bus_thickness,"(25 90 220)")
+        secondary_parts.append(name)
+    name="Secondary_"+label+"_External_Bridge"
+    terminal=(lane_x,31.0,bus_z)
+    create_trace(name,[(point[0],bus_y,bus_z),(lane_x,bus_y,bus_z),terminal],
+                 bus_width,bus_thickness,"(25 90 220)")
+    secondary_parts.append(name)
+    secondary_terminals.append(dict(label=label,layer="external_bridge",centre_mm=terminal,width_mm=bus_width))
 unite(secondary_parts)
 # Clear connected copper out of dielectric to avoid overlapping materials.
 for i in range(1,8):
@@ -278,18 +296,20 @@ unclassified=list(oEditor.GetObjectsInGroup("Unclassified"))
 if unclassified:
     raise RuntimeError("Invalid geometry objects: " + ",".join(unclassified))
 solids=list(oEditor.GetObjectsInGroup("Solids"))
-if "Secondary_A_L6_3T" not in solids or "Secondary_B_L7_3T" in solids:
+if "Secondary_A_L6_3T" not in solids or "Secondary_B_L7_3T" in solids or "Secondary_C_L8_3T" in solids:
     raise RuntimeError("Secondary copper union was not completed")
-output=os.path.join(os.path.dirname(os.path.abspath(__file__)),"output")
+output=os.path.join(os.path.dirname(os.path.abspath(__file__)),"output","36_3_2_compact")
 if not os.path.isdir(output): os.makedirs(output)
-project=os.path.join(output,"Flyback_Scheme_C_EE_CenteredSecondary_100kHz.aedt")
+project=os.path.join(output,"Flyback_36_3_2_Compact70mm_3Parallel_100kHz.aedt")
 oProject.SaveAs(project,True)
-with open(os.path.join(output,"Flyback_Scheme_C_EE_geometry.json"),"w") as f:
+with open(os.path.join(output,"Flyback_36_3_2_Compact70mm_geometry.json"),"w") as f:
     json.dump(dict(project=project,half_height_mm=HEIGHT,gap_each_mm=GAP,
        core_size_mm=[LENGTH,DEPTH,2*HEIGHT+GAP],pcb_thickness_mm=BOARD_T,
        core_pcb_clearance_mm=CLEARANCE,coils=coil_info,
-       stage="primary L2-L3 series; secondary L6/L7 parallel with centred L8 terminals; AUX interconnects and excitations not assigned",
+       stage="primary L2-L3 series; secondary L6/L7/L8 parallel with external copper bridges; AUX interconnects and excitations not assigned",
        primary_series_via_mm=[0,via_y,via_bottom,via_top],
-       secondary_connection="3T parallel 3T (same polarity)",
+       secondary_connection="3T || 3T || 3T (same polarity)",
        secondary_vias=secondary_vias,secondary_terminals=secondary_terminals,
-       secondary_to_outer_leg_clearance_mm=1.6),f,indent=2)
+       secondary_to_outer_leg_clearance_mm=2.0,
+       external_bridge_standoff_mm=bus_standoff,external_bridge_thickness_mm=bus_thickness,
+       pcb_size_mm=[82,62,BOARD_T]),f,indent=2)

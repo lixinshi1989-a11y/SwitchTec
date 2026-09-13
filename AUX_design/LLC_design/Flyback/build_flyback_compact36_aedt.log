@@ -1,0 +1,27 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_compact36_aedt.py
+Starting Batch Run: 8:57:08 PM  Sep 09, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 8:57:20 PM  Sep 09, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_compact36_aedt.py
+Starting Batch Run: 3:00:20 PM  Sep 10, 2026
+Running as user : ZH503369\CodexSandboxOffline
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+[Exiting application]
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_compact36_aedt.py
+Starting Batch Run: 3:00:47 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 3:00:58 PM  Sep 10, 2026

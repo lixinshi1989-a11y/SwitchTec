@@ -1,0 +1,11 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/build_flyback_d20_secondary_full_window_via_array_v3.py
+Starting Batch Run: 3:23:18 PM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Project1, Design:Flyback_D20_UniformPrimary_SecondaryFullWindow_ViaArrayV3_100kHz (EddyCurrent), Verify conduction path: Conduction path validate success. (03:23:33 PM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 3:23:37 PM  Sep 12, 2026

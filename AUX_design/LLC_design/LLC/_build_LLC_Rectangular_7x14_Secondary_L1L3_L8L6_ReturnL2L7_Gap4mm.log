@@ -1,0 +1,18 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/LLC/_build_LLC_Rectangular_7x14_Secondary_L1L3_L8L6_ReturnL2L7_Gap4mm.py
+Starting Batch Run: 5:09:10 PM  Sep 12, 2026
+Running as user : ZH503369\CodexSandboxOffline
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+[Exiting application]
+[error] Unable to detect installed products. Please make sure that config/admin.xml exists in your installation directory and is syntactically correct.
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/LLC/_build_LLC_Rectangular_7x14_Secondary_L1L3_L8L6_ReturnL2L7_Gap4mm.py
+Starting Batch Run: 5:09:31 PM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+Stopping Batch Run: 5:09:41 PM  Sep 12, 2026

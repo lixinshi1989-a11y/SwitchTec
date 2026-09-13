@@ -1,0 +1,24 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/configure_flyback_series_secondary_rings.py
+Starting Batch Run: 12:28:02 PM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Flyback_Pot_Parametric_SeriesSecondaryRings, Design:Flyback_Pot_Parametric_SeriesSecondaryRings (EddyCurrent), Verify conduction path: Conduction path validate success. (12:28:08 PM  Sep 12, 2026)
+[warning] Project:Flyback_Pot_Parametric_SeriesSecondaryRings, Design:Flyback_Pot_Parametric_SeriesSecondaryRings (EddyCurrent), A Matrix parameter cannot have a geometry selection.  The geometry selection is ignored. (12:28:08 PM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 12:28:09 PM  Sep 12, 2026
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/configure_flyback_series_secondary_rings.py
+Starting Batch Run: 12:32:56 PM  Sep 12, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+[info] Project:Flyback_Pot_Parametric_SeriesSecondaryRings, Design:Flyback_Pot_Parametric_SeriesSecondaryRings (EddyCurrent), Verify conduction path: Conduction path validate success. (12:33:01 PM  Sep 12, 2026)
+[warning] Project:Flyback_Pot_Parametric_SeriesSecondaryRings, Design:Flyback_Pot_Parametric_SeriesSecondaryRings (EddyCurrent), A Matrix parameter cannot have a geometry selection.  The geometry selection is ignored. (12:33:01 PM  Sep 12, 2026)
+[info] Verify conduction path: Conduction path validate success.
+Stopping Batch Run: 12:33:03 PM  Sep 12, 2026

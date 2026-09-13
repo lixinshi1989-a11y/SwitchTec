@@ -4,7 +4,7 @@ For a complete build with solver configuration, run
 ``build_and_configure_llc_aedt.py``.  Run this geometry-only script directly
 inside AEDT only when solver settings are not wanted.
 Geometry units are millimetres. Blind-via access is limited to L1-L2/L1-L3
-and L8-L7/L8-L6. Surface breakouts preserve each winding's trace width.
+for primary; secondary inner ends use adjacent-layer vias to L2/L7.
 """
 import ScriptEnv
 import os
@@ -26,17 +26,18 @@ CU = [0.069, 0.064, 0.064, 0.064, 0.064, 0.064, 0.064, 0.069]
 DIEL = [0.346, 0.406, 0.393, 0.406, 0.406, 0.406, 0.360]
 BOARD_T = sum(CU) + sum(DIEL)       # 3.245 mm
 
-CORE_LENGTH = 36.0
-CORE_WIDTH = 10.0
-LEG = 10.0
-LEG_PITCH = 26.0
-SLOT = 10.6
+CORE_LENGTH = 30.0
+CORE_DEPTH = 14.0
+LEG = 7.0
+LEG_PITCH = 23.0
+SLOT_X = 7.6
+SLOT_Y = 14.6
 # Keep the previously verified physical gap. Reducing the U height shortens
 # the ferrite path and is intentionally allowed to increase Lm slightly.
 GAP_EACH_JOINT = 0.052554
-CORE_TO_PCB_SURFACE = 1.0
+CORE_TO_PCB_SURFACE = 0.5
 # Inner yoke face = PCB surface + 1 mm. The half-gap is outside each U core.
-U_HEIGHT = CORE_WIDTH + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
+U_HEIGHT = LEG + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
 
 P_TURNS = 3
 S_TURNS = 4
@@ -48,8 +49,9 @@ SEC_LEG_TO_COPPER = 2.00           # secondary winding copper-to-core clearance
 
 # L2/L3 contain primary spirals around the left leg and output spirals around
 # the right leg. Their nearest copper edges remain more than 2 mm apart.
+SECONDARY_COLORS = {'S1': '(0 114 189)', 'S2': '(217 83 25)', 'S3': '(237 177 32)', 'S4': '(126 47 142)'}
 PRIMARY_LAYERS = {2: "P1", 3: "P2"}
-SECONDARY_LAYERS = {2: "S1", 3: "S2", 6: "S3", 7: "S4"}
+SECONDARY_LAYERS = {1: "S1", 3: "S2", 6: "S3", 8: "S4"}
 
 
 def mm(value):
@@ -138,7 +140,7 @@ def create_via(name, x, y, first_layer, last_layer, diameter, color):
     """Copper blind via between the named layer centres (inclusive)."""
     z1 = layer_z[first_layer - 1]
     z2 = layer_z[last_layer - 1]
-    z0 = min(z1, z2) - CU[first_layer - 1] / 2.0
+    z0 = min(z1 - CU[first_layer - 1] / 2.0, z2 - CU[last_layer - 1] / 2.0)
     height = abs(z2 - z1) + (CU[first_layer - 1] + CU[last_layer - 1]) / 2.0
     return oEditor.CreateCylinder(
         ["NAME:CylinderParameters", "XCenter:=", mm(x), "YCenter:=", mm(y),
@@ -155,12 +157,14 @@ def create_via(name, x, y, first_layer, last_layer, diameter, color):
 
 def rectangular_spiral(cx, cy, turns, width, spacing, z, exit_side,
                        core_clearance=LEG_TO_COPPER):
-    """Open rectangular spiral around one 10 x 10 mm core-leg slot."""
+    """Open rectangular spiral around one 7 x 14 mm core-leg slot."""
     pitch = width + spacing
-    inner = LEG / 2.0 + core_clearance + width / 2.0
-    outer = inner + (turns - 1) * pitch
-    x_left, x_right = cx - outer, cx + outer
-    y_bottom, y_top = cy - outer, cy + outer
+    inner_x = LEG / 2.0 + core_clearance + width / 2.0
+    inner_y = CORE_DEPTH / 2.0 + core_clearance + width / 2.0
+    outer_x = inner_x + (turns - 1) * pitch
+    outer_y = inner_y + (turns - 1) * pitch
+    x_left, x_right = cx - outer_x, cx + outer_x
+    y_bottom, y_top = cy - outer_y, cy + outer_y
     # Non-self-intersecting rectangular spiral, initially with a left exit.
     pts = [(x_left - 4.0, cy, z), (x_left, cy, z), (x_left, y_top, z)]
     for turn in range(turns):
@@ -207,8 +211,8 @@ for layer in range(1, 9):
         holes = []
         for idx, cx in enumerate([-LEG_PITCH / 2.0, LEG_PITCH / 2.0], 1):
             hname = "{}_SlotTool{}".format(diel_name, idx)
-            create_box(hname, [cx - SLOT / 2, -SLOT / 2, z - 0.01],
-                       [SLOT, SLOT, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
+            create_box(hname, [cx - SLOT_X / 2, -SLOT_Y / 2, z - 0.01],
+                       [SLOT_X, SLOT_Y, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
             holes.append(hname)
         subtract(diel_name, holes)
         z += DIEL[layer - 1]
@@ -232,24 +236,19 @@ for layer, winding in PRIMARY_LAYERS.items():
     create_trace("{}_L{}_3T".format(winding, layer), pts, P_WIDTH,
                  CU[layer - 1], "(220 55 35)")
 
+# Each spiral starts outside on its own layer. Only its inner end changes layer.
 for layer, winding in SECONDARY_LAYERS.items():
     pts = rectangular_spiral(LEG_PITCH / 2.0, 0.0, S_TURNS,
                              S_WIDTH, TURN_SPACING, layer_z[layer - 1], "right",
                              SEC_LEG_TO_COPPER)
-    # Offset the outer/start access for L3/L6 to clear the traversed layer.
-    if layer == 3:
-        pts.insert(0, (pts[0][0], pts[0][1] + 3.0, pts[0][2]))
-    elif layer == 6:
-        pts.insert(0, (pts[0][0], pts[0][1] - 3.0, pts[0][2]))
-    # Continue along the innermost bottom edge, without crossing any turns.
-    # The deeper blind via is beyond the endpoint of the traversed layer.
-    secondary_inner_right = (LEG_PITCH / 2.0 +
-                             LEG / 2.0 + SEC_LEG_TO_COPPER + S_WIDTH / 2.0)
-    via_x = secondary_inner_right - (2.45 if layer in (2, 7) else 0.95)
+    # Complete the fourth inner edge; retain 0.25 mm to the adjacent turn.
+    via_x = LEG_PITCH / 2.0 + LEG / 2.0 + SEC_LEG_TO_COPPER + S_WIDTH / 2.0 - 0.95
     pts.append((via_x, pts[-1][1], pts[-1][2]))
+    if layer in (3, 6):
+        pts = [(x, -y, z) for x, y, z in pts]
     secondary_points[layer] = pts
     create_trace("{}_L{}_4T".format(winding, layer), pts, S_WIDTH,
-                 CU[layer - 1], "(30 105 220)")
+                 CU[layer - 1], SECONDARY_COLORS[winding])
 
 # -----------------------------------------------------------------------------
 # Legal blind vias and same-width surface breakout traces
@@ -270,39 +269,26 @@ create_trace("PRI_START_BREAKOUT_L1",
 # At the left yellow-circle via, change to L1, go down, then out to the left.
 create_trace("PRI_END_BREAKOUT_L1",
              [(p_end_via[0], p_end_via[1], layer_z[0]),
-              (p_end_via[0], -9.0, layer_z[0]),
-              (-29.5, -9.0, layer_z[0])],
+              (-29.5, p_end_via[1], layer_z[0])],
              P_WIDTH, CU[0], "(220 55 35)")
 
-# Each output stays isolated and receives two accessible surface terminals.
-# S1: L2 -> L1; S2: L3 -> L1; S3: L6 -> L8; S4: L7 -> L8.
-sec_access = {2: (1, 2), 3: (1, 3), 6: (6, 8), 7: (7, 8)}
-sec_surface = {2: 1, 3: 1, 6: 8, 7: 8}
-# Separate surface return lanes, with 0.20 mm copper-edge spacing.
-sec_return_y = {2: -9.15, 3: -8.25, 6: -8.25, 7: -9.15}
-for layer in (2, 3, 6, 7):
-    pts = secondary_points[layer]
-    start_pt, end_pt = pts[0], pts[-1]
-    first_layer, last_layer = sec_access[layer]
-    surface_layer = sec_surface[layer]
-    create_via("S{}_START_VIA_L{}_L{}".format(layer, first_layer, last_layer),
-               start_pt[0], start_pt[1], first_layer, last_layer, S_WIDTH,
-               "(30 105 220)")
-    end_via = (end_pt[0], end_pt[1], layer_z[surface_layer - 1])
-    create_via("S{}_END_VIA_L{}_L{}".format(layer, first_layer, last_layer),
-               end_via[0], end_via[1], first_layer, last_layer, S_WIDTH,
-               "(30 105 220)")
-    zsurf = layer_z[surface_layer - 1]
-    create_trace("S{}_START_BREAKOUT_L{}".format(layer, surface_layer),
-                 [(start_pt[0], start_pt[1], zsurf), (29.0, start_pt[1], zsurf)],
-                 S_WIDTH, CU[surface_layer - 1], "(30 105 220)")
-    # From the right yellow-circle vias, go down on L1/L8, then out right.
-    # The nearer via uses the lower lane to avoid the farther via's return.
-    create_trace("S{}_END_BREAKOUT_L{}".format(layer, surface_layer),
-                 [(end_via[0],end_via[1],zsurf),
-                  (end_via[0],sec_return_y[layer],zsurf),
-                  (29.0,sec_return_y[layer],zsurf)],
-                 S_WIDTH, CU[surface_layer - 1], "(30 105 220)")
+# Adjacent-layer inner-end vias only: L1-L2, L2-L3, L6-L7, L7-L8.
+sec_surface = {1: 2, 3: 2, 6: 7, 8: 7}
+sec_return_y = {}
+for layer, winding in SECONDARY_LAYERS.items():
+    start_pt, end_pt = secondary_points[layer][0], secondary_points[layer][-1]
+    target = sec_surface[layer]
+    first, last = min(layer, target), max(layer, target)
+    create_via(winding + "_END_VIA", end_pt[0], end_pt[1], first, last,
+               S_WIDTH, SECONDARY_COLORS[winding])
+    create_trace(winding + "_START_LEAD",
+                 [start_pt, (29.0, start_pt[1], start_pt[2])],
+                 S_WIDTH, CU[layer - 1], SECONDARY_COLORS[winding])
+    sec_return_y[layer] = end_pt[1]
+    zout = layer_z[target - 1]
+    create_trace(winding + "_RETURN_LEAD",
+                 [(end_pt[0], end_pt[1], zout), (29.0, end_pt[1], zout)],
+                 S_WIDTH, CU[target - 1], SECONDARY_COLORS[winding])
 
 # -----------------------------------------------------------------------------
 # One solid per independent electrical winding
@@ -313,54 +299,47 @@ unite(["P1_L2_3T", "P2_L3_3T",
        "P12_START_VIA_L1_L3", "P12_END_VIA_L1_L3",
        "PRI_START_BREAKOUT_L1", "PRI_END_BREAKOUT_L1"])
 
-# The four outputs remain mutually isolated. Each Unite includes only its own
-# spiral, two legal blind vias and its two surface breakout traces.
 for layer, winding in SECONDARY_LAYERS.items():
-    first_layer, last_layer = sec_access[layer]
-    surface_layer = sec_surface[layer]
-    unite(["{}_L{}_4T".format(winding, layer),
-           "S{}_START_VIA_L{}_L{}".format(layer, first_layer, last_layer),
-           "S{}_END_VIA_L{}_L{}".format(layer, first_layer, last_layer),
-           "S{}_START_BREAKOUT_L{}".format(layer, surface_layer),
-           "S{}_END_BREAKOUT_L{}".format(layer, surface_layer)])
+    unite(["{}_L{}_4T".format(winding, layer), winding + "_END_VIA",
+           winding + "_START_LEAD", winding + "_RETURN_LEAD"])
 
 # -----------------------------------------------------------------------------
 # Upper and lower U cores. Joint is centred at Z=0 inside the PCB slots.
 # -----------------------------------------------------------------------------
-stem = U_HEIGHT - CORE_WIDTH
+stem = U_HEIGHT - LEG
 g2 = GAP_EACH_JOINT / 2.0
 left_x = -CORE_LENGTH / 2.0
 right_leg_x = CORE_LENGTH / 2.0 - LEG
 
 upper = []
 upper.append("Core_Upper_Yoke")
-create_box(upper[-1], [left_x, -CORE_WIDTH / 2, g2 + stem],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(upper[-1], [left_x, -CORE_DEPTH / 2, g2 + stem],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Upper_Leg_P", left_x), ("Core_Upper_Leg_S", right_leg_x)]:
     upper.append(name)
-    create_box(name, [x, -LEG / 2, g2], [LEG, LEG, stem], "DMR53", "(65 70 78)")
+    create_box(name, [x, -CORE_DEPTH / 2, g2], [LEG, CORE_DEPTH, stem], "DMR53", "(65 70 78)")
 
 lower = []
 lower.append("Core_Lower_Yoke")
-create_box(lower[-1], [left_x, -CORE_WIDTH / 2, -g2 - U_HEIGHT],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(lower[-1], [left_x, -CORE_DEPTH / 2, -g2 - U_HEIGHT],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Lower_Leg_P", left_x), ("Core_Lower_Leg_S", right_leg_x)]:
     lower.append(name)
-    create_box(name, [x, -LEG / 2, -g2 - stem], [LEG, LEG, stem],
+    create_box(name, [x, -CORE_DEPTH / 2, -g2 - stem], [LEG, CORE_DEPTH, stem],
                "DMR53", "(65 70 78)")
 
 # Explicit nonmagnetic joint gaps. Each joint is 52.554 um; a closed U-U
 # magnetic path crosses both joints, giving approximately 0.1051 mm total gap.
-create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
-create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
 
 # Add the Maxwell air region after terminal/polarity review. Avoid creating an
 # overlapping ordinary vacuum solid here because it can hide geometry errors.
 oEditor.FitAll()
 
 # Save beside the script when AEDT exposes the project path through the UI.
-oProject.SaveAs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output', 'LLC_Planar_Transformer_Np3_Lm6p5uH_v7.aedt'), True)
+oProject.SaveAs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output', 'LLC_Rectangular_7x14_Secondary_L1L3_L8L6_ReturnL2L7_Gap4mm_Geometry.aedt'), True)
 print("AEDT model created: U height {:.6f} mm, core-to-PCB {:.3f} mm, each gap {:.6f} mm.".format(
     U_HEIGHT, CORE_TO_PCB_SURFACE, GAP_EACH_JOINT))

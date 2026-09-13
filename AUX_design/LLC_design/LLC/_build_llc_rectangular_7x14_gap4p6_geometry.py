@@ -26,17 +26,18 @@ CU = [0.069, 0.064, 0.064, 0.064, 0.064, 0.064, 0.064, 0.069]
 DIEL = [0.346, 0.406, 0.393, 0.406, 0.406, 0.406, 0.360]
 BOARD_T = sum(CU) + sum(DIEL)       # 3.245 mm
 
-CORE_LENGTH = 36.0
-CORE_WIDTH = 10.0
-LEG = 10.0
-LEG_PITCH = 26.0
-SLOT = 10.6
+CORE_LENGTH = 30.0
+CORE_DEPTH = 14.0
+LEG = 7.0
+LEG_PITCH = 23.0
+SLOT_X = 7.6
+SLOT_Y = 14.6
 # Keep the previously verified physical gap. Reducing the U height shortens
 # the ferrite path and is intentionally allowed to increase Lm slightly.
 GAP_EACH_JOINT = 0.052554
-CORE_TO_PCB_SURFACE = 1.0
+CORE_TO_PCB_SURFACE = 0.5
 # Inner yoke face = PCB surface + 1 mm. The half-gap is outside each U core.
-U_HEIGHT = CORE_WIDTH + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
+U_HEIGHT = LEG + BOARD_T / 2.0 + CORE_TO_PCB_SURFACE - GAP_EACH_JOINT / 2.0
 
 P_TURNS = 3
 S_TURNS = 4
@@ -155,12 +156,14 @@ def create_via(name, x, y, first_layer, last_layer, diameter, color):
 
 def rectangular_spiral(cx, cy, turns, width, spacing, z, exit_side,
                        core_clearance=LEG_TO_COPPER):
-    """Open rectangular spiral around one 10 x 10 mm core-leg slot."""
+    """Open rectangular spiral around one 7 x 14 mm core-leg slot."""
     pitch = width + spacing
-    inner = LEG / 2.0 + core_clearance + width / 2.0
-    outer = inner + (turns - 1) * pitch
-    x_left, x_right = cx - outer, cx + outer
-    y_bottom, y_top = cy - outer, cy + outer
+    inner_x = LEG / 2.0 + core_clearance + width / 2.0
+    inner_y = CORE_DEPTH / 2.0 + core_clearance + width / 2.0
+    outer_x = inner_x + (turns - 1) * pitch
+    outer_y = inner_y + (turns - 1) * pitch
+    x_left, x_right = cx - outer_x, cx + outer_x
+    y_bottom, y_top = cy - outer_y, cy + outer_y
     # Non-self-intersecting rectangular spiral, initially with a left exit.
     pts = [(x_left - 4.0, cy, z), (x_left, cy, z), (x_left, y_top, z)]
     for turn in range(turns):
@@ -207,8 +210,8 @@ for layer in range(1, 9):
         holes = []
         for idx, cx in enumerate([-LEG_PITCH / 2.0, LEG_PITCH / 2.0], 1):
             hname = "{}_SlotTool{}".format(diel_name, idx)
-            create_box(hname, [cx - SLOT / 2, -SLOT / 2, z - 0.01],
-                       [SLOT, SLOT, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
+            create_box(hname, [cx - SLOT_X / 2, -SLOT_Y / 2, z - 0.01],
+                       [SLOT_X, SLOT_Y, DIEL[layer - 1] + 0.02], "vacuum", "(255 255 255)")
             holes.append(hname)
         subtract(diel_name, holes)
         z += DIEL[layer - 1]
@@ -270,8 +273,7 @@ create_trace("PRI_START_BREAKOUT_L1",
 # At the left yellow-circle via, change to L1, go down, then out to the left.
 create_trace("PRI_END_BREAKOUT_L1",
              [(p_end_via[0], p_end_via[1], layer_z[0]),
-              (p_end_via[0], -9.0, layer_z[0]),
-              (-29.5, -9.0, layer_z[0])],
+              (-29.5, p_end_via[1], layer_z[0])],
              P_WIDTH, CU[0], "(220 55 35)")
 
 # Each output stays isolated and receives two accessible surface terminals.
@@ -279,7 +281,7 @@ create_trace("PRI_END_BREAKOUT_L1",
 sec_access = {2: (1, 2), 3: (1, 3), 6: (6, 8), 7: (7, 8)}
 sec_surface = {2: 1, 3: 1, 6: 8, 7: 8}
 # Separate surface return lanes, with 0.20 mm copper-edge spacing.
-sec_return_y = {2: -9.15, 3: -8.25, 6: -8.25, 7: -9.15}
+sec_return_y = {2: -10.25, 3: -9.25, 6: -9.25, 7: -10.25}
 for layer in (2, 3, 6, 7):
     pts = secondary_points[layer]
     start_pt, end_pt = pts[0], pts[-1]
@@ -327,40 +329,40 @@ for layer, winding in SECONDARY_LAYERS.items():
 # -----------------------------------------------------------------------------
 # Upper and lower U cores. Joint is centred at Z=0 inside the PCB slots.
 # -----------------------------------------------------------------------------
-stem = U_HEIGHT - CORE_WIDTH
+stem = U_HEIGHT - LEG
 g2 = GAP_EACH_JOINT / 2.0
 left_x = -CORE_LENGTH / 2.0
 right_leg_x = CORE_LENGTH / 2.0 - LEG
 
 upper = []
 upper.append("Core_Upper_Yoke")
-create_box(upper[-1], [left_x, -CORE_WIDTH / 2, g2 + stem],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(upper[-1], [left_x, -CORE_DEPTH / 2, g2 + stem],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Upper_Leg_P", left_x), ("Core_Upper_Leg_S", right_leg_x)]:
     upper.append(name)
-    create_box(name, [x, -LEG / 2, g2], [LEG, LEG, stem], "DMR53", "(65 70 78)")
+    create_box(name, [x, -CORE_DEPTH / 2, g2], [LEG, CORE_DEPTH, stem], "DMR53", "(65 70 78)")
 
 lower = []
 lower.append("Core_Lower_Yoke")
-create_box(lower[-1], [left_x, -CORE_WIDTH / 2, -g2 - U_HEIGHT],
-           [CORE_LENGTH, CORE_WIDTH, CORE_WIDTH], "DMR53", "(65 70 78)")
+create_box(lower[-1], [left_x, -CORE_DEPTH / 2, -g2 - U_HEIGHT],
+           [CORE_LENGTH, CORE_DEPTH, LEG], "DMR53", "(65 70 78)")
 for name, x in [("Core_Lower_Leg_P", left_x), ("Core_Lower_Leg_S", right_leg_x)]:
     lower.append(name)
-    create_box(name, [x, -LEG / 2, -g2 - stem], [LEG, LEG, stem],
+    create_box(name, [x, -CORE_DEPTH / 2, -g2 - stem], [LEG, CORE_DEPTH, stem],
                "DMR53", "(65 70 78)")
 
 # Explicit nonmagnetic joint gaps. Each joint is 52.554 um; a closed U-U
 # magnetic path crosses both joints, giving approximately 0.1051 mm total gap.
-create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
-create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -LEG / 2, -g2],
-           [LEG, LEG, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_PrimaryLeg_0p052554mm", [left_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
+create_box("AirGap_SecondaryLeg_0p052554mm", [right_leg_x, -CORE_DEPTH / 2, -g2],
+           [LEG, CORE_DEPTH, GAP_EACH_JOINT], "vacuum", "(210 235 255)")
 
 # Add the Maxwell air region after terminal/polarity review. Avoid creating an
 # overlapping ordinary vacuum solid here because it can hide geometry errors.
 oEditor.FitAll()
 
 # Save beside the script when AEDT exposes the project path through the UI.
-oProject.SaveAs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output', 'LLC_Planar_Transformer_Np3_Lm6p5uH_v7.aedt'), True)
+oProject.SaveAs(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'output', 'LLC_Rectangular_7x14_Clearance0p5_PSgap4p6_Geometry.aedt'), True)
 print("AEDT model created: U height {:.6f} mm, core-to-PCB {:.3f} mm, each gap {:.6f} mm.".format(
     U_HEIGHT, CORE_TO_PCB_SURFACE, GAP_EACH_JOINT))

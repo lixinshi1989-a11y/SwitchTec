@@ -1,0 +1,14 @@
+ 
+Ansys Electronics Desktop Version 2024.2.0, Build: 2024-05-23 02:23:50
+Location: C:\Program Files\AnsysEM\v242\Win64\ansysedt.exe
+Batch Script: D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/configure_compact36_native_aedt.py
+Starting Batch Run: 3:31:43 PM  Sep 10, 2026
+Running as user : HZZH\alexshi
+Temp directory: C:\Users\alexshi\AppData\Local\Temp
+Project directory: C:\Users\alexshi\Documents\Ansoft
+-- Message Window --
+      Flyback_36_3_2_Compact70mm_ConfiguredBatch_100kHz (D:/SwitchTec/SST/AUX_design/LLC_design/Flyback/output/36_3_2_compact/)
+        Flyback_C_EE_100kHz (EddyCurrent)
+          [info] Verify conduction path: Conduction path validate success. (03:31:52 PM  Sep 10, 2026)
+-- Message Window --
+Stopping Batch Run: 3:31:54 PM  Sep 10, 2026
